@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
-import { environment } from 'src/environments/environment';
+import { Repository } from './repository';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserRequestService {
   user!: User;
+  repo!: Repository;
+  apiUrl = 'https://api.github.com/users/GraceMwende?access_token';
+  apiUrl2 = 'https://api.github.com/users/GraceMwende/repos';
 
   constructor(private http: HttpClient) {
     this.user = new User('', '', '', 0, 0, 0, new Date());
+    this.repo = new Repository('', '');
   }
 
+  // users part
   userRequest() {
     interface ApiResponse {
       name: string;
@@ -26,7 +31,7 @@ export class UserRequestService {
 
     let promise = new Promise<void>((resolve, reject) => {
       this.http
-        .get<ApiResponse>(environment.apiUrl)
+        .get<ApiResponse>(this.apiUrl)
         .toPromise()
         .then(
           (response) => {
@@ -50,5 +55,32 @@ export class UserRequestService {
         );
     });
     return promise;
+  }
+
+  repoRequest() {
+    interface ApiResponse2 {
+      name: string;
+      description: string;
+    }
+    let promise2 = new Promise<void>((resolve, reject) => {
+      this.http
+        .get<ApiResponse2>(this.apiUrl2)
+        .toPromise()
+        .then(
+          (response) => {
+            this.repo.name = response!.name;
+            this.repo.description = response!.description;
+
+            resolve();
+          },
+          (error) => {
+            this.repo.name = 'ggggggg';
+            this.repo.description = 'lolestttttt';
+
+            reject(error);
+          }
+        );
+    });
+    return promise2;
   }
 }
