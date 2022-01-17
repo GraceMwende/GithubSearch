@@ -9,11 +9,12 @@ import { UserRequestService } from '../user-request.service';
 export class LandingPageComponent implements OnInit {
   public githubUserQuery!: string;
   user!: User;
-  constructor(private userService: UserRequestService) {}
+  constructor(public userService: UserRequestService) {}
 
   ngOnInit(): void {}
   searchUser(username: string) {
     this.userService.userRequest(username);
+    this.userService.repoRequest(username);
     this.user = this.userService.user;
   }
 }

@@ -44,6 +44,7 @@ export class UserRequestService {
             this.user.dateCreated = response!.created_at;
 
             resolve(this.user);
+            console.log(this.user);
           },
           (error) => {
             // this.user.name = 'Grace Mwende Micheni';
@@ -58,30 +59,33 @@ export class UserRequestService {
     return promise;
   }
 
-  // repoRequest() {
-  //   interface ApiResponse2 {
-  //     name: string;
-  //     description: string;
-  //   }
-  //   let promise2 = new Promise<void>((resolve, reject) => {
-  //     this.http
-  //       .get<ApiResponse2>(this.apiUrl2)
-  //       .toPromise()
-  //       .then(
-  //         (response) => {
-  //           this.repo.name = response!.name;
-  //           this.repo.description = response!.description;
+  repoRequest(username: string) {
+    interface ApiResponse2 {
+      name: string;
+      description: string;
+    }
 
-  //           resolve();
-  //         },
-  //         (error) => {
-  //           // this.repo.name = 'ggggggg';
-  //           // this.repo.description = 'lolestttttt';
-  //           'No existing repos found';
-  //           reject(error);
-  //         }
-  //       );
-  //   });
-  //   return promise2;
-  // }
+    let repoUrl = 'https://api.github.com/users/' + username + '/repos';
+
+    let promise2 = new Promise<void>((resolve, reject) => {
+      this.http
+        .get<ApiResponse2>(repoUrl)
+        .toPromise()
+        .then(
+          (response) => {
+            this.repo = response;
+
+            resolve(this.repo);
+            console.log(this.repo);
+          },
+          (error) => {
+            // this.repo.name = 'ggggggg';
+            // this.repo.description = 'lolestttttt';
+            'No existing repos found';
+            reject(error);
+          }
+        );
+    });
+    return promise2;
+  }
 }

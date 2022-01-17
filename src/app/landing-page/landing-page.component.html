@@ -31,3 +31,8 @@
 {{user.followers}}
 {{user.following}}
 {{user.dateCreated |date}}
+
+<div *ngFor='let repo of userService.repo'>
+  <p>Name: {{repo.name}}</p>
+  <p>Name: {{repo.description}}</p>
+</div>
