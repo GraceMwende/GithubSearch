@@ -7,10 +7,8 @@ import { Repository } from './repository';
   providedIn: 'root',
 })
 export class UserRequestService {
-  user!: User;
-  repo!: Repository;
-  apiUrl = 'https://api.github.com/users/GraceMwende?access_token';
-  apiUrl2 = 'https://api.github.com/users/GraceMwende/repos';
+  user: any = User;
+  repo: any = Repository;
 
   constructor(private http: HttpClient) {
     this.user = new User('', '', '', 0, 0, 0, new Date());
@@ -18,7 +16,7 @@ export class UserRequestService {
   }
 
   // users part
-  userRequest() {
+  userRequest(username: string) {
     interface ApiResponse {
       name: string;
       avatar_url: string;
@@ -29,9 +27,11 @@ export class UserRequestService {
       created_at: Date;
     }
 
+    let userUrl = 'https://api.github.com/users/' + username;
+
     let promise = new Promise<void>((resolve, reject) => {
       this.http
-        .get<ApiResponse>(this.apiUrl)
+        .get<ApiResponse>(userUrl)
         .toPromise()
         .then(
           (response) => {
@@ -43,7 +43,7 @@ export class UserRequestService {
             this.user.following = response!.following;
             this.user.dateCreated = response!.created_at;
 
-            resolve();
+            resolve(this.user);
           },
           (error) => {
             // this.user.name = 'Grace Mwende Micheni';
@@ -58,30 +58,30 @@ export class UserRequestService {
     return promise;
   }
 
-  repoRequest() {
-    interface ApiResponse2 {
-      name: string;
-      description: string;
-    }
-    let promise2 = new Promise<void>((resolve, reject) => {
-      this.http
-        .get<ApiResponse2>(this.apiUrl2)
-        .toPromise()
-        .then(
-          (response) => {
-            this.repo.name = response!.name;
-            this.repo.description = response!.description;
+  // repoRequest() {
+  //   interface ApiResponse2 {
+  //     name: string;
+  //     description: string;
+  //   }
+  //   let promise2 = new Promise<void>((resolve, reject) => {
+  //     this.http
+  //       .get<ApiResponse2>(this.apiUrl2)
+  //       .toPromise()
+  //       .then(
+  //         (response) => {
+  //           this.repo.name = response!.name;
+  //           this.repo.description = response!.description;
 
-            resolve();
-          },
-          (error) => {
-            // this.repo.name = 'ggggggg';
-            // this.repo.description = 'lolestttttt';
-            'No existing repos found';
-            reject(error);
-          }
-        );
-    });
-    return promise2;
-  }
+  //           resolve();
+  //         },
+  //         (error) => {
+  //           // this.repo.name = 'ggggggg';
+  //           // this.repo.description = 'lolestttttt';
+  //           'No existing repos found';
+  //           reject(error);
+  //         }
+  //       );
+  //   });
+  //   return promise2;
+  // }
 }

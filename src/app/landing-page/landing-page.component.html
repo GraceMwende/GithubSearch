@@ -12,9 +12,11 @@
         <div class="card-body">
           <form class="form-inline">
             <div class="form-group">
-              <input size="40" type="search" class="form-control" placeholder="github-user">
+              <input size="40" type="search" class="form-control" placeholder="github-user" #users>
             </div>
-            <input type="submit" value="submit" class="btn btn-secondary btn-sm">
+            <div>
+              <input type="submit" value="search" (click)='searchUser(users.value)' class="btn btn-secondary btn-sm">
+            </div>
           </form>
         </div>
       </div>
