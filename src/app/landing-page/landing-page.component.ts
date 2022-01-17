@@ -7,11 +7,12 @@ import { UserRequestService } from '../user-request.service';
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
-  public githubUserQuery!: string;
+  // public githubUserQuery!: string;
   user!: User;
   constructor(public userService: UserRequestService) {}
 
   ngOnInit(): void {}
+
   searchUser(username: string) {
     this.userService.userRequest(username);
     this.userService.repoRequest(username);

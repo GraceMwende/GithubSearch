@@ -24,15 +24,30 @@
   </div>
 </div>
 
-{{user.name}}
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{user.name}}</h5>
+        <p>{{user.name}}</p>
+        <p class="card-text">{{user.bio}}</p>
+        <a href="#" class="btn btn-secondary d-block">Edit Profile</a>
+        <i class="fa fa-users" aria-hidden="true"></i>{{user.followers}} followers <b>.</b> {{user.following}} following
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- {{user.name}}
 <img src="{{user.avatar}}" alt="">
 {{user.bio}}
 {{user.repos}}
 {{user.followers}}
 {{user.following}}
-{{user.dateCreated |date}}
+{{user.dateCreated |date}} -->
 
-<div *ngFor='let repo of userService.repo'>
-  <p>Name: {{repo.name}}</p>
-  <p>Name: {{repo.description}}</p>
+<div *ngFor='let repos of userService.repo'>
+  <p>Name: {{repos.name}}</p>
+  <p>Description: {{repos.description}}</p>
 </div>

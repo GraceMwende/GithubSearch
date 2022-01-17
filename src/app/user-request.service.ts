@@ -47,11 +47,7 @@ export class UserRequestService {
             console.log(this.user);
           },
           (error) => {
-            // this.user.name = 'Grace Mwende Micheni';
-            // this.user.bio = 'machine engineer';
-            // this.user.repos = 0;
             'This user could not be found';
-
             reject(error);
           }
         );
