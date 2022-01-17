@@ -46,9 +46,10 @@ export class UserRequestService {
             resolve();
           },
           (error) => {
-            this.user.name = 'Grace Mwende Micheni';
-            this.user.bio = 'machine engineer';
-            this.user.repos = 0;
+            // this.user.name = 'Grace Mwende Micheni';
+            // this.user.bio = 'machine engineer';
+            // this.user.repos = 0;
+            'This user could not be found';
 
             reject(error);
           }
@@ -74,9 +75,9 @@ export class UserRequestService {
             resolve();
           },
           (error) => {
-            this.repo.name = 'ggggggg';
-            this.repo.description = 'lolestttttt';
-
+            // this.repo.name = 'ggggggg';
+            // this.repo.description = 'lolestttttt';
+            'No existing repos found';
             reject(error);
           }
         );
