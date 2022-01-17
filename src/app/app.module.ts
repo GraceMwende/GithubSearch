@@ -8,9 +8,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DateCountPipe } from './date-count.pipe';
 
 @NgModule({
-  declarations: [AppComponent, LandingPageComponent, NavbarComponent, NotFoundComponent],
+  declarations: [AppComponent, LandingPageComponent, NavbarComponent, NotFoundComponent, DateCountPipe],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

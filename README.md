@@ -1,27 +1,43 @@
-# GithubSearch
+# GithubSearch Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
+## Live Link
 
-## Development server
+#### Application Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+a website where users may enter a GitHub username into a form, submit it, and see names and descriptions of that person's public repositories. A person can also look for repositories
 
-## Code scaffolding
+#### By **List of contributors**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+@GraceMwende
 
-## Build
+#### BDD
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Search Github user
+- Enable routing
 
-## Running unit tests
+## Known Bugs
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+component displaying on load instead of after searching
 
-## Running end-to-end tests
+## Setup/Installation Requirements
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Do a git clone of the repo to your local machine:
+  git clone https://github.com/GraceMwende/GithubSearch.git
+- Run 'npm install' to install node modules
+- run 'ng serve -o' to open in browser
 
-## Further help
+## Technologies Used
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular
+- CSS
+- Bootstrap
+- Typescript
+
+## Support and contact details
+
+Please contact me incase of anything
+
+### License
+
+This project is licensed under the terms of the MIT license.
+Copyright (c) 2021
