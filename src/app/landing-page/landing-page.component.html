@@ -1,53 +1,63 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-sm">
-  <a href="" class="navbar-brand"><i class="fa fa-github" aria-hidden="true"></i>Github Search</a>
-</nav>
+<main>
+  <div class="container my-3">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header bg-dark  text-white">
+            <h3>user search</h3>
+          </div>
+          <div class="card-body">
+            <form class="form-inline">
+              <div class="form-group">
+                <input size="40" type="search" class="form-control" placeholder="github-user" #users>
+              </div>
+              <div>
+                <input type="submit" value="search" (click)='searchUser(users.value)' class="btn btn-secondary btn-sm">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="container mt-3">
   <div class="row">
-    <div class="col">
+
+    <div class="col-md-4">
       <div class="card">
-        <div class="card-header bg-dark  text-white">
-          <h3>user search</h3>
-        </div>
+        <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
         <div class="card-body">
-          <form class="form-inline">
-            <div class="form-group">
-              <input size="40" type="search" class="form-control" placeholder="github-user" #users>
-            </div>
-            <div>
-              <input type="submit" value="search" (click)='searchUser(users.value)' class="btn btn-secondary btn-sm">
-            </div>
-          </form>
+          <h5 class="card-title">{{user.name}}</h5>
+          <p>{{user.name}}</p>
+          <p class="card-text">{{user.bio}}</p>
+          <a href="#" class="btn btn-secondary d-block">Edit Profile</a>
+          <i class="fa fa-users" aria-hidden="true"></i>{{user.followers}} followers <b>.</b> {{user.following}}
+          following
+          <p>Created on: {{user.dateCreated |date}}</p>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <img class="card-img-top" src="{{user.avatar}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{user.name}}</h5>
-        <p>{{user.name}}</p>
-        <p class="card-text">{{user.bio}}</p>
-        <a href="#" class="btn btn-secondary d-block">Edit Profile</a>
-        <i class="fa fa-users" aria-hidden="true"></i>{{user.followers}} followers <b>.</b> {{user.following}} following
+    <div class="col-md-4 flexing">
+      <h2>Popular repositories</h2>
+      <div *ngFor='let repos of userService.repo'>
+        <div class="card-group">
+          <div class="card mb-3">
+            <h5 class="card-title text-primary">Name: {{repos.name}}</h5>
+            <p class="card-text">Description: {{repos.description}}</p>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </div>
-</div>
 
-<!-- {{user.name}}
+  <!-- {{user.name}}
 <img src="{{user.avatar}}" alt="">
 {{user.bio}}
 {{user.repos}}
 {{user.followers}}
 {{user.following}}
 {{user.dateCreated |date}} -->
-
-<div *ngFor='let repos of userService.repo'>
-  <p>Name: {{repos.name}}</p>
-  <p>Description: {{repos.description}}</p>
-</div>
+</main>

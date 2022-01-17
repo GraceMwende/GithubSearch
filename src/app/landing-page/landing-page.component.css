@@ -1,4 +1,16 @@
+main {
+  overflow-x: hidden;
+  flex-wrap: wrap;
+}
+
 img {
   border-radius: 50%;
   height: 50vh;
 }
+
+/* .flexing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+} */
