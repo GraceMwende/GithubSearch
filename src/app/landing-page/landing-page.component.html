@@ -39,18 +39,18 @@
       </div>
     </div>
 
-    <div class="col-md-4 flexing">
-      <h2>Popular repositories</h2>
-      <div *ngFor='let repos of userService.repo'>
-        <div class="card-group">
-          <div class="card mb-3">
-            <h5 class="card-title text-primary">Name: {{repos.name}}</h5>
-            <p class="card-text">Description: {{repos.description}}</p>
-            <a href="{{repos.html_url}}" target="_blank"><button class="btn btn-primary">View Repo</button></a>
-          </div>
+    <!-- <div class="col-md-8 flexing"> -->
+    <h4>Popular repositories</h4>
+    <div *ngFor='let repos of userService.repo' class="col-4 card">
+      <div class="card">
+        <div class="card mb-3">
+          <h5 class="card-title text-primary">Name: {{repos.name}}</h5>
+          <p class="card-text">Description: {{repos.description}}</p>
+          <a href="{{repos.html_url}}" target="_blank"><button class="btn btn-primary text-center">View
+              Repo</button></a>
         </div>
-
       </div>
+
 
     </div>
   </div>
