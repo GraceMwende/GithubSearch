@@ -30,7 +30,7 @@
           <h5 class="card-title">{{user.name}}</h5>
           <p>{{user.name}}</p>
           <p class="card-text">{{user.bio}}</p>
-          <a href="#" class="btn primary d-block" appColor>Edit Profile</a>
+          <button href="#" class="btn primary d-block w-100" appColor>Follow</button>
           <i class="fa fa-users" aria-hidden="true"></i>{{user.followers}} followers <b>.</b> {{user.following}}
           following
           <p>Created on: {{user.dateCreated |date}}</p>
@@ -40,7 +40,7 @@
     </div>
 
     <!-- <div class="col-md-8 flexing"> -->
-    <h4>Popular repositories</h4>
+    <h4 class="text-center">Popular repositories</h4>
     <div *ngFor='let repos of userService.repo' class="col-4 card">
       <div class="card">
         <div class="card mb-3">
