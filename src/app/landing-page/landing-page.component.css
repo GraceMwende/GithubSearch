@@ -8,6 +8,14 @@ img {
   height: 50vh;
 }
 
+main {
+  font-family: sans-serif;
+}
+
+p {
+  font-family: Open Sans;
+}
+
 /* .flexing {
   display: flex;
   justify-content: center;
