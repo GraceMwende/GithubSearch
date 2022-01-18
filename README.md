@@ -19,7 +19,7 @@ a website where users may enter a GitHub username into a form, submit it, and se
 
 ## Known Bugs
 
-component displaying on load instead of after searching
+
 
 ## Setup/Installation Requirements
 
