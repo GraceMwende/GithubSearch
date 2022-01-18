@@ -11,7 +11,7 @@ export class UserRequestService {
   repo: any = Repository;
 
   constructor(private http: HttpClient) {
-    this.user = new User('', '', '', 0, 0, 0, new Date());
+    this.user = new User('', '', '', '', 0, 0, 0, new Date());
     this.repo = new Repository('', '', '');
   }
 
@@ -19,6 +19,7 @@ export class UserRequestService {
   userRequest(username: string) {
     interface ApiResponse {
       name: string;
+      login: string;
       avatar_url: string;
       bio: string;
       public_repos: number;
@@ -36,6 +37,7 @@ export class UserRequestService {
         .then(
           (response) => {
             this.user.name = response!.name;
+            this.user.login = response!.login;
             this.user.avatar = response!.avatar_url;
             this.user.bio = response!.bio;
             this.user.repos = response!.public_repos;
