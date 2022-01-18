@@ -12,7 +12,7 @@ export class UserRequestService {
 
   constructor(private http: HttpClient) {
     this.user = new User('', '', '', 0, 0, 0, new Date());
-    this.repo = new Repository('', '');
+    this.repo = new Repository('', '', '');
   }
 
   // users part
@@ -59,6 +59,7 @@ export class UserRequestService {
     interface ApiResponse2 {
       name: string;
       description: string;
+      html_url: string;
     }
 
     let repoUrl = 'https://api.github.com/users/' + username + '/repos';
